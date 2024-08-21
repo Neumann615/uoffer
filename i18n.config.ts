@@ -260,13 +260,12 @@ export default defineI18nConfig(() => ({
                     secretaryLabel: '董秘',
                     secretaryValue: '杨小姐',
                     emailLabel: '邮箱',
-                    emailValue: 'ir@ukuoffer.com',
+                    emailValue: 'xxxxxxxxx',
                     stockCodeLabel: '股票代码',
                     stockCodeValue: '200032',
                     video: 'https://cdn-dev.ukuoffer.com/adminUploads/homePage/video/1a31a89c6a520334fe98dcc854a629d7.mp4'
                 }
             },
-        }),
-        en: {}
+        })
     },
 }))

@@ -86,11 +86,11 @@ import {decryptData} from "#imports"
             <div class="font-ST">京公网安备</div>
           </div>
           <div>
-            <div>11010502043926号</div>
-            <div>11010502050737号</div>
+            <div>11111111111111号</div>
+            <div>11111111111111号</div>
           </div>
           <div style="margin-right: 0"><a href="http://beian.miit.gov.cn/"
-                                          class="color-#545454 hover-link">京ICP备2021001561号</a></div>
+                                          class="color-#545454 hover-link">京ICP备9294628746号</a></div>
         </div>
       </div>
     </div>
