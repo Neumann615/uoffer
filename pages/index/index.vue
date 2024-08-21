@@ -1,26 +1,33 @@
 <template>
   <div class="home">
     <div class="home-banner">
-      <img :src="decryptData($t('pageData.home.module1'))[0].img"/>
+      <NCarousel show-arrow autoplay>
+        <img
+          v-for="(item, index) in homeBanner.list"
+          :src="getI18nData(item, 'image_url')"
+        />
+      </NCarousel>
     </div>
     <div class="home-module">
       <div class="home-module-header">
-        <div class="title">{{ $t("pageData.home.module2.title") }}</div>
+        <div class="title">
+          {{ $t("pageData.home.module1.title") }}
+        </div>
         <div class="description">
-          {{ $t("pageData.home.module2.description") }}
+          {{ $t("pageData.home.module1.description") }}
         </div>
       </div>
       <div class="home-module-main">
         <div class="flex justify-between w-50% margin-auto gap-12">
           <div
-              class="bg-#f1efe7 pa-6 rounded-xl"
-              v-for="(item, index) in decryptData(
-              $t('pageData.home.module2.dataList')
+            class="bg-#f1efe7 pa-6 rounded-xl"
+            v-for="(item, index) in decryptData(
+              $t('pageData.home.module1.dataList')
             )"
           >
             <span class="text-8 font-550" style="color: #5e4d00">{{
-                item.number
-              }}</span>
+              item.number
+            }}</span>
             <span>+</span> <span class="text-4">{{ item.name }}</span>
             <div class="text-3 line-height-loose color-#666">
               {{ item.description }}
@@ -31,28 +38,26 @@
     </div>
     <div class="home-module">
       <div class="home-module-header">
-        <div class="title">{{ $t("pageData.home.module3.title") }}</div>
+        <div class="title">
+          {{ $t("pageData.home.module2.title") }}
+        </div>
         <div class="sub-title">
-          {{ $t("pageData.home.module3.description") }}
+          {{ $t("pageData.home.module2.description") }}
         </div>
       </div>
       <div class="home-module-main">
         <div class="grid grid-cols-6 gap-4 w-85%">
-          <div
-              v-for="(item, index) in decryptData(
-              $t('pageData.home.module3.dataList')
-            )"
-          >
+          <div v-for="(item, index) in pageWorks.list" :key="item.id">
             <div class="cursor-pointer">
-              <img :src="item.img"/>
+              <img :src="item.image" />
             </div>
             <div class="color-#333 font-600 line-height-10 text-5">
               {{ item.name }}
             </div>
             <div
-                class="color-#787878 text-3 text-ellipsis whitespace-nowrap overflow-hidden"
+              class="color-#787878 text-3 text-ellipsis whitespace-nowrap overflow-hidden"
             >
-              {{ item.description }}
+              {{ getI18nData(item, "intro") }}
             </div>
           </div>
         </div>
@@ -63,18 +68,47 @@
     </div>
     <div class="home-module">
       <div class="home-module-header">
+        <div class="title">
+          {{ $t("pageData.home.module3.title") }}
+        </div>
+        <div class="sub-title">
+          {{ $t("pageData.home.module3.description") }}
+        </div>
+      </div>
+      <div class="home-module-main">
+        <div class="w-50% pos-relative">
+          <img
+            class="pos-absolute left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
+            src="/img/home/play-video.png"
+          />
+          <img :src="$t('pageData.home.module3.cover')" />
+        </div>
+      </div>
+    </div>
+    <div class="home-module">
+      <div class="home-module-header">
         <div class="title">{{ $t("pageData.home.module4.title") }}</div>
         <div class="sub-title">
           {{ $t("pageData.home.module4.description") }}
         </div>
       </div>
       <div class="home-module-main">
-        <div class="w-50% pos-relative">
-          <img
+        <div class="flex w-60%">
+          <div class="w-30% mr-10%">
+            <div class="mb-4 font-600 text-6 line-height-24">
+              {{ $t("pageData.home.module4.subTitle") }}
+            </div>
+            <div class="text-3">
+              {{ $t("pageData.home.module4.subDescription") }}
+            </div>
+          </div>
+          <div class="w-60% pos-relative">
+            <img
               class="pos-absolute left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
               src="/img/home/play-video.png"
-          />
-          <img :src="$t('pageData.home.module4.cover')"/>
+            />
+            <img :src="$t('pageData.home.module4.cover')" />
+          </div>
         </div>
       </div>
     </div>
@@ -86,44 +120,17 @@
         </div>
       </div>
       <div class="home-module-main">
-        <div class="flex w-60%">
-          <div class="w-30% mr-10%">
-            <div class="mb-4 font-600 text-6 line-height-24">
-              {{ $t("pageData.home.module5.subTitle") }}
-            </div>
-            <div class="text-3">
-              {{ $t("pageData.home.module5.subDescription") }}
-            </div>
-          </div>
-          <div class="w-60% pos-relative">
-            <img
-                class="pos-absolute left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
-                src="/img/home/play-video.png"
-            />
-            <img :src="$t('pageData.home.module5.cover')"/>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="home-module">
-      <div class="home-module-header">
-        <div class="title">{{ $t("pageData.home.module6.title") }}</div>
-        <div class="sub-title">
-          {{ $t("pageData.home.module6.description") }}
-        </div>
-      </div>
-      <div class="home-module-main">
         <div class="grid grid-cols-4 gap-6 w-70%">
           <div
-              v-for="(item, index) in decryptData(
-              $t('pageData.home.module6.dataList')
+            v-for="(item, index) in decryptData(
+              $t('pageData.home.module5.dataList')
             )"
           >
             <div class="cursor-pointer bg-#f1efe7">
-              <img :src="item.img"/>
+              <img :src="item.img" />
             </div>
             <div
-                class="color-#666 font-600 line-height-5 text-3.8 text-center mt-3"
+              class="color-#666 font-600 line-height-5 text-3.8 text-center mt-3"
             >
               {{ item.text }}
             </div>
@@ -134,15 +141,23 @@
     <div class="home-module">
       <div class="home-module-header"></div>
       <div class="home-module-main">
-        <img class="w-70%" :src="$t('pageData.home.module7.img')">
+        <img class="w-70%" :src="$t('pageData.home.module6.img')" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {decryptData} from "#imports"
-import {NButton} from "naive-ui"
+import { NButton, NCarousel } from "naive-ui"
+const { getI18nData } = useI18nData()
+const { data: homeBanner } = await useFetch("/api/cms/banner", {
+  params: {
+    page_num: 1,
+    page_size: 100,
+    position: 2,
+  },
+})
+const { data: pageWorks } = await useFetch("/api/cms/pageWorker")
 </script>
 
 <style scoped lang="less">

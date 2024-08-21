@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>课程</template>
+<template>1232</template>
 
 <style scoped></style>
