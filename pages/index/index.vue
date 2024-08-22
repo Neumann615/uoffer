@@ -161,8 +161,10 @@
 </template>
 
 <script lang="ts" setup>
+//使用包含引入了vueuc的组件
 import {NBackTop, NButton, NCarousel} from "naive-ui"
-import { VResizeObserver } from 'vueuc/es'
+//或者不从es包中导入都会导致报错
+import {VResizeObserver} from 'vueuc/es'
 
 console.log(VResizeObserver)
 const {getI18nData} = useI18nData()
