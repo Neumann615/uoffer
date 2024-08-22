@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <NuxtPage/>
-  </div>
+  <Header></Header>
+  <NuxtPage />
+  <Footer></Footer>
 </template>
 <style>
 @import "@unocss/reset/tailwind.css";
@@ -32,3 +32,5 @@
   background-color: #f0f0f0; /* 轨道的背景色 */
 }
 </style>
+<script setup lang="ts">
+</script>
