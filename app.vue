@@ -1,10 +1,10 @@
 <template>
   <Header></Header>
-  <NuxtPage />
+  <NuxtPage/>
   <Footer></Footer>
 </template>
 <style>
-@import "@unocss/reset/tailwind.css";
+@import "./reset.css";
 /* 整个滚动条 */
 ::-webkit-scrollbar {
   width: 8px; /* 水平滚动条的高度、垂直滚动条的宽度 */
@@ -30,6 +30,13 @@
 /* 滚动条外的轨道 */
 ::-webkit-scrollbar-track {
   background-color: #f0f0f0; /* 轨道的背景色 */
+}
+
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 </style>
 <script setup lang="ts">

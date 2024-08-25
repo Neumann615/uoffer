@@ -264,6 +264,19 @@ export default defineI18nConfig(() => ({
                     stockCodeLabel: '股票代码',
                     stockCodeValue: '200032',
                     video: 'https://cdn-dev.ukuoffer.com/adminUploads/homePage/video/1a31a89c6a520334fe98dcc854a629d7.mp4'
+                },
+                ranking: {
+                    breadcrumbList: [
+                        {
+                            label: '首页',
+                            path: '/'
+                        },
+                        {
+                            label: '排行榜'
+                        }
+                    ],
+                    universityLogo: "大学校徽",
+                    universityName: "大学名称",
                 }
             },
         })

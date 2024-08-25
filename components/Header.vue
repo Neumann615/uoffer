@@ -1,29 +1,31 @@
 <script setup lang="ts">
-import { decryptData, useRouter } from "#imports"
-import { NButton } from "naive-ui"
-const { locale, setLocale, t } = useI18n()
+import {decryptData, useRouter} from "#imports"
+
+const {locale, setLocale, t} = useI18n()
 const menuList = decryptData(t("header.menu"))
 const router = useRouter()
 const route = useRoute()
 const activeKey = ref(route.path)
 const containerRef = ref(null)
-const height = ref(103)
+const height = ref(84)
 
 watch(
-  () => activeKey.value,
-  () => {
-    console.log(route)
-    router.push({
-      path: activeKey.value,
-    })
-  },
-  { immediate: false }
+    () => activeKey.value,
+    () => {
+      router.push({
+        path: activeKey.value,
+      })
+    },
+    {immediate: false}
 )
 
+watch(() => route.path, () => {
+  activeKey.value = route.path
+})
+
 onMounted(() => {
-  console.log(containerRef)
   if (containerRef.value) {
-    height.value = containerRef.value.offsetHeight
+    height.value = containerRef.value?.offsetHeight
   }
 })
 </script>
@@ -31,23 +33,23 @@ onMounted(() => {
 <template>
   <div :style="{ height: height + 'px' }">
     <div ref="containerRef" class="pos-fixed w-full bg-white z-999">
-      <div class="flex w-full flex-justify-between flex-items-center pl-2 pr-2">
-        <div>
-          <NButton size="small" @click="setLocale('cn')">中文</NButton>
-          <NButton size="small" @click="setLocale('en')">英文</NButton>
+      <div class="flex w-full flex-justify-between flex-items-center p-2">
+        <div class="w-30%">
+          <ElButton size="small" @click="setLocale('cn')">中文</ElButton>
+          <ElButton size="small" @click="setLocale('en')">英文</ElButton>
           {{ locale }}
         </div>
         <div class="font-600 text-7 tracking-widest">
           {{ $t("header.title") }}
         </div>
-        <div></div>
+        <div class="w-30%"></div>
       </div>
       <div class="header-menu">
         <div
-          class="header-menu-item"
-          :class="{ 'is-selected': item.key === activeKey }"
-          v-for="(item, index) in menuList"
-          @click="activeKey = item.key"
+            class="header-menu-item ellipsis"
+            :class="{ 'is-selected': item.key === activeKey }"
+            v-for="(item, index) in menuList"
+            @click="activeKey = item.key"
         >
           {{ item.label }}
         </div>
@@ -65,6 +67,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   gap: 12px;
+
   &-item {
     padding: 0px 18px;
     color: rgb(51, 51, 51);
@@ -73,6 +76,7 @@ onMounted(() => {
     line-height: 36px;
     box-sizing: border-box;
   }
+
   &-item:hover {
     color: #000;
     font-weight: 600;

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {NButton} from "naive-ui"
 
 const activityCategoryList = [
   {
@@ -59,7 +58,6 @@ const websiteAdvantages = [
     title: "云数据整合379861份不同背景的成功案例，AI提取分析成功经验，提高录取率"
   },
 ]
-
 const nowActivityCategory = ref(1)
 const nowActivityPageNum = ref(1)
 const activityData = ref({
@@ -117,11 +115,11 @@ watch(() => nowActivityCategory.value, () => {
         <div class="title">品牌活动</div>
       </div>
       <div class="tags">
-        <NButton strong type="primary" secondary
-                 @click="nowActivityCategory=item.value"
-                 v-for="(item,index) in activityCategoryList">
+        <ElButton type="primary"
+                  @click="nowActivityCategory=item.value"
+                  v-for="(item,index) in activityCategoryList">
           {{ item.label }}
-        </NButton>
+        </ElButton>
       </div>
       <div class="content">
         <div class="main">
@@ -134,12 +132,12 @@ watch(() => nowActivityCategory.value, () => {
             </div>
           </div>
           <div class="pagination" v-show="activityData.total > 6">
-            <NButton @click="prevPageActivity" :disabled="nowActivityPageNum===1">
+            <ElButton @click="prevPageActivity" :disabled="nowActivityPageNum===1">
               上一页
-            </NButton>
-            <NButton @click="nextPageActivity" :disabled="nowActivityPageNum*6>=activityData.total">
+            </ElButton>
+            <ElButton @click="nextPageActivity" :disabled="nowActivityPageNum*6>=activityData.total">
               下一页
-            </NButton>
+            </ElButton>
           </div>
         </div>
         <div class="side">
@@ -291,7 +289,7 @@ watch(() => nowActivityCategory.value, () => {
               height: 200px;
               position: relative;
               width: 100%;
-              border-radius: 6px;
+              border-radius: 4px;
               overflow: hidden;
 
               img {

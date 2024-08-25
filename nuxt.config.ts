@@ -10,13 +10,23 @@ export default defineNuxtConfig({
             enabled: true
         }
     },
-    modules: ["@unocss/nuxt", "nuxtjs-naive-ui", "@nuxtjs/i18n", "@nuxt/content", "@nuxt/image"],
+    modules: [
+        "@unocss/nuxt",
+        "@nuxtjs/i18n",
+        "@nuxt/content",
+        "@nuxt/image",
+        "@nuxt/icon",
+        "@element-plus/nuxt"
+    ],
     i18n: {
         vueI18n: "./i18n.config.ts",
     },
+    elementPlus:{
+        defaultLocale: "zh-cn",
+    },
     nitro: {
         prerender: {
-            routes: ['/', '/about', "/contact", "/investor-relations"]
+            routes: ['/', '/about', "/contact", "/investor-relations","/ranking"]
         }
     },
     sourcemap: false,

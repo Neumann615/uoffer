@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <div class="home-banner">
-      <NCarousel show-arrow autoplay>
+      <ElCarousel autoplay height="33.23vw">
         <img
             v-for="(item, index) in homeBanner.list"
             :src="getI18nData(item, 'image_url')"
         />
-      </NCarousel>
+      </ElCarousel>
     </div>
     <div class="home-module">
       <div class="home-module-header">
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="flex pa-6 flex-justify-center">
-        <NButton>查看全部</NButton>
+        <ElButton>查看全部</ElButton>
       </div>
     </div>
     <div class="home-module">
@@ -78,7 +78,7 @@
       <div class="home-module-main">
         <div class="w-50% pos-relative">
           <img
-              class="pos-absolute left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
+              class="pos-absolute w-50px left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
               src="/img/home/play-video.png"
           />
           <img :src="$t('pageData.home.module3.cover')"/>
@@ -93,7 +93,7 @@
         </div>
       </div>
       <div class="home-module-main">
-        <div class="flex w-60%">
+        <div class="flex w-60% flex-items-start">
           <div class="w-30% mr-10%">
             <div class="mb-4 font-600 text-6 line-height-24">
               {{ $t("pageData.home.module4.subTitle") }}
@@ -104,7 +104,7 @@
           </div>
           <div class="w-60% pos-relative">
             <img
-                class="pos-absolute left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
+                class="pos-absolute w-50px left-50% top-50% -translate-x-50% -translate-y-50% cursor-pointer"
                 src="/img/home/play-video.png"
             />
             <img :src="$t('pageData.home.module4.cover')"/>
@@ -144,29 +144,11 @@
         <img class="w-70%" :src="$t('pageData.home.module6.img')"/>
       </div>
     </div>
-    <NBackTop>
-      <div
-          style="
-        width: 200px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        font-size: 14px;
-      "
-      >
-        指定目标
-      </div>
-    </NBackTop>
   </div>
 </template>
 
 <script lang="ts" setup>
-//使用包含引入了vueuc的组件
-import {NBackTop, NButton, NCarousel} from "naive-ui"
-//或者不从es包中导入都会导致报错
-import {VResizeObserver} from 'vueuc/es'
 
-console.log(VResizeObserver)
 const {getI18nData} = useI18nData()
 const {data: homeBanner} = await useFetch("/api/cms/banner", {
   params: {

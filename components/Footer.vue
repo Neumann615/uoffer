@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {NDivider} from "naive-ui"
 import {decryptData} from "#imports"
 </script>
 
@@ -9,7 +8,7 @@ import {decryptData} from "#imports"
       <div>
         <div v-for="(item,index) in decryptData($t('footer.linkList'))">
           <a :href="item.link" class="flex mb-4">
-            <img height="14px" width="20px" :src="item.img" style="object-fit: contain;" class="mr-4">
+            <img :src="item.img" style="object-fit: contain;width: 15px" class="mr-4">
             <span class="website-link hover-link color-#545454">{{
                 item.text
               }}</span>
@@ -51,7 +50,7 @@ import {decryptData} from "#imports"
         </div>
       </div>
     </div>
-    <NDivider></NDivider>
+    <ElDivider></ElDivider>
     <div class="flex justify-between flex-items-center">
       <div>
         <div class="flex flex-items-center mb-4">
@@ -59,11 +58,11 @@ import {decryptData} from "#imports"
           <img class="w-32" :src="$t('footer.baseInfo.img')"/>
         </div>
         <div>
-          <div class="color-#545454 mb-1" v-for="(item,index) in decryptData($t('footer.baseInfo.copyrightList'))">
+          <div class="color-#545454 mb-1 text-13px" v-for="(item,index) in decryptData($t('footer.baseInfo.copyrightList'))">
             {{ item }}
           </div>
         </div>
-        <div class="color-#545454">
+        <div class="color-#545454 text-13px mt-2">
           {{ $t('footer.baseInfo.address') }}
         </div>
       </div>
