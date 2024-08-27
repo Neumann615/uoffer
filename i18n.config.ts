@@ -277,6 +277,17 @@ export default defineI18nConfig(() => ({
                     ],
                     universityLogo: "大学校徽",
                     universityName: "大学名称",
+                },
+                strategyForStudyingAbroad: {
+                    breadcrumbList: [
+                        {
+                            label: '首页',
+                            path: '/'
+                        },
+                        {
+                            label: '留学攻略'
+                        }
+                    ],
                 }
             },
         })

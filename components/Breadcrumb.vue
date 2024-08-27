@@ -14,8 +14,8 @@ const MyIcon = h(Icon, { name: 'material-symbols:arrow-forward-ios-rounded' })
 </script>
 
 <template>
-  <div v-if="props.breadcrumbList?.length" class="w-100% border-b border-b-#dedede">
-    <div class="h-32px line-height-32px ma w-1100px flex " style="align-items: center">
+  <div v-if="props.breadcrumbList?.length" class="w-100% border-b border-b-#dedede bg-#fff">
+    <div class="h-36px line-height-36px ma w-1100px flex " style="align-items: center">
       <ElBreadcrumb :separator-icon="MyIcon">
         <ElBreadcrumbItem @click="$router.push({
             path:item.path

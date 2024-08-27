@@ -46,7 +46,7 @@ onMounted(() => {
       </div>
       <div class="header-menu">
         <div
-            class="header-menu-item ellipsis"
+            class="header-menu-item ellipsis text-3.5"
             :class="{ 'is-selected': item.key === activeKey }"
             v-for="(item, index) in menuList"
             @click="activeKey = item.key"
