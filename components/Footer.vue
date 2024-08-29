@@ -8,7 +8,7 @@ import {decryptData} from "#imports"
       <div>
         <div v-for="(item,index) in decryptData($t('footer.linkList'))">
           <a :href="item.link" class="flex mb-4">
-            <img :src="item.img" style="object-fit: contain;width: 15px" class="mr-4">
+            <img :src="item.img" style="object-fit: contain;width: 15px" class="mr-8">
             <span class="website-link hover-link color-#545454">{{
                 item.text
               }}</span>
@@ -16,25 +16,25 @@ import {decryptData} from "#imports"
         </div>
       </div>
       <div class="flex" style="letter-spacing:1px;">
-        <div class="ml-12 mr-12">
-          <div class="font-700 color-#545454 text-4 mb-3">{{ $t('footer.customerService.title') }}</div>
-          <a class="block mb-2 hover-link color-#545454"
+        <div class="ml-24 mr-24">
+          <div class="font-700 color-#545454 text-15 mb-8">{{ $t('footer.customerService.title') }}</div>
+          <a class="block mb-8 hover-link color-#545454"
              v-for="(item,index) in decryptData($t('footer.customerService.dataList'))" :href="item.link"
           ><span
           >
               {{ item.text }}
             </span></a>
         </div>
-        <div class="ml-12 mr-12">
-          <div class="font-700 color-#545454 text-4 mb-3">{{ $t('footer.currencyAndLanguage.title') }}</div>
+        <div class="ml-24 mr-24">
+          <div class="font-700 color-#545454 text-15 mb-8">{{ $t('footer.currencyAndLanguage.title') }}</div>
           <div>{{ $t('footer.currencyAndLanguage.text') }}</div>
         </div>
-        <div class="ml-12 mr-12">
-          <div class="font-700 color-#545454 text-4 mb-3">{{ $t('footer.courseClassification.title') }}</div>
+        <div class="ml-24 mr-24">
+          <div class="font-700 color-#545454 text-15 mb-8">{{ $t('footer.courseClassification.title') }}</div>
           <div>
             <a :href="item.link"
                v-for="(item,index) in decryptData($t('footer.courseClassification.dataList'))"
-               class="block mb-2 hover-link color-#545454">
+               class="block mb-8 hover-link color-#545454">
               <span>
               {{ item.text }}
             </span></a>
@@ -43,8 +43,8 @@ import {decryptData} from "#imports"
       </div>
       <div class="flex gap-8">
         <div v-for="(item,index) in decryptData($t('footer.qrCodeList')) " class="qr-item qr-scan-item gap-12">
-          <img :src="item.img" alt="" class="w-28 h-28">
-          <div class="text-center color-#4a4a4a text-3.5 mt-1">
+          <img :src="item.img" alt="" class="w-114 h-114">
+          <div class="text-center color-#4a4a4a text-13 mt-4">
             {{ item.text }}
           </div>
         </div>
@@ -53,16 +53,16 @@ import {decryptData} from "#imports"
     <ElDivider></ElDivider>
     <div class="flex justify-between flex-items-center">
       <div>
-        <div class="flex flex-items-center mb-4">
-          <div class="font-600 text-3xl tracking-widest">{{ $t('footer.baseInfo.title') }}</div>
-          <img class="w-32" :src="$t('footer.baseInfo.img')"/>
+        <div class="flex flex-items-center mb-12">
+          <div class="font-600 text-28 tracking-widest">{{ $t('footer.baseInfo.title') }}</div>
+          <img class="w-114" :src="$t('footer.baseInfo.img')"/>
         </div>
         <div>
-          <div class="color-#545454 mb-1 text-13px" v-for="(item,index) in decryptData($t('footer.baseInfo.copyrightList'))">
+          <div class="color-#545454 mb-4 text-13" v-for="(item,index) in decryptData($t('footer.baseInfo.copyrightList'))">
             {{ item }}
           </div>
         </div>
-        <div class="color-#545454 text-13px mt-2">
+        <div class="color-#545454 text-14 mt-8">
           {{ $t('footer.baseInfo.address') }}
         </div>
       </div>
@@ -77,9 +77,9 @@ import {decryptData} from "#imports"
             }}
           </a>
         </div>
-        <div class="mt-2 flex gap-4">
+        <div class="mt-12 flex gap-4">
           <div class="flex">
-            <div class="mr-1">
+            <div class="mr-4">
               <img src="/img/home/police.png">
             </div>
             <div class="font-ST">京公网安备</div>

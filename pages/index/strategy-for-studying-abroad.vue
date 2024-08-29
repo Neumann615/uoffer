@@ -79,11 +79,15 @@ watch(() => rankingType.value, () => {
 <template>
 
   <Breadcrumb :breadcrumbList="decryptData($t('pageData.strategyForStudyingAbroad.breadcrumbList'))"></Breadcrumb>
-  <ElCarousel autoplay>
-    <img
-        v-for="(item, index) in banner.list"
-        :src="getI18nData(item, 'image_url')"
-    />
+  <ElCarousel :autoplay="false">
+    <ElCarouselItem v-for="(item, index) in banner.list">
+      <img
+          class="object-cover"
+          style="height: 100%"
+          :src="getI18nData(item, 'image_url')"
+      />
+    </ElCarouselItem>
+
   </ElCarousel>
   <div class="flex flex-items-center justify-center h-48px border-1 border-#dcdcdc border-solid ">
     <div
@@ -97,11 +101,11 @@ watch(() => rankingType.value, () => {
       <div> {{ item.title }}</div>
     </div>
   </div>
-  <div class="w-100% h-a bg-#f8f8f8">
+  <div class="w-100% h-a bg-#f8f8f8 pt-24px">
     <div class="flex w-1200px ma gap-4">
       <div>
-        <div class="flex  justify-between flex-items-center">
-          <div>热门文章</div>
+        <div class="flex  justify-between flex-items-center pt-16px pb-16px">
+          <div class="text-24px">热门文章</div>
           <div>查看更多</div>
         </div>
         <div v-for="(item,index) in hotArticle" class="mb-2 bg-#fff">

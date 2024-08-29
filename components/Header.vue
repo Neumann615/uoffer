@@ -39,14 +39,14 @@ onMounted(() => {
           <ElButton size="small" @click="setLocale('en')">英文</ElButton>
           {{ locale }}
         </div>
-        <div class="font-600 text-7 tracking-widest">
+        <div class="font-600 text-28 tracking-widest">
           {{ $t("header.title") }}
         </div>
         <div class="w-30%"></div>
       </div>
       <div class="header-menu">
         <div
-            class="header-menu-item ellipsis text-3.5"
+            class="header-menu-item ellipsis text-13"
             :class="{ 'is-selected': item.key === activeKey }"
             v-for="(item, index) in menuList"
             @click="activeKey = item.key"
