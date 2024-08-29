@@ -20,16 +20,16 @@
       <div class="home-module-main">
         <div class="flex justify-between w-50% margin-auto gap-12">
           <div
-              class="bg-#f1efe7 pa-6 rounded-xl"
+              class="bg-#f1efe7 pa-24 rounded-8 w-32%"
               v-for="(item, index) in decryptData(
               $t('pageData.home.module1.dataList')
             )"
           >
-            <span class="text-8 font-550" style="color: #5e4d00">{{
+            <span class="text-26 font-550" style="color: #5e4d00">{{
                 item.number
               }}</span>
-            <span>+</span> <span class="text-4">{{ item.name }}</span>
-            <div class="text-3 line-height-loose color-#666">
+            <span>+</span> <span class="text-14">{{ item.name }}</span>
+            <div class="text-12 mt-8 line-height-loose color-#666">
               {{ item.description }}
             </div>
           </div>
@@ -46,16 +46,16 @@
         </div>
       </div>
       <div class="home-module-main">
-        <div class="grid grid-cols-6 gap-4 w-85%">
+        <div class="grid grid-cols-6 gap-20 w-85%">
           <div v-for="(item, index) in pageWorks.list" :key="item.id">
             <div class="cursor-pointer">
               <img :src="item.image"/>
             </div>
-            <div class="color-#333 font-600 line-height-10 text-5">
+            <div class="color-#333 font-600  text-18 mt-12">
               {{ item.name }}
             </div>
             <div
-                class="color-#787878 text-3 text-ellipsis whitespace-nowrap overflow-hidden"
+                class="color-#787878 text-13 text-ellipsis whitespace-nowrap overflow-hidden mt-8"
             >
               {{ getI18nData(item, "intro") }}
             </div>
@@ -95,10 +95,10 @@
       <div class="home-module-main">
         <div class="flex w-60% flex-items-start">
           <div class="w-30% mr-10%">
-            <div class="mb-4 font-600 text-6 line-height-24">
+            <div class="mb-48 font-600 text-28 line-height-24">
               {{ $t("pageData.home.module4.subTitle") }}
             </div>
-            <div class="text-3">
+            <div class="text-13 line-height-normal">
               {{ $t("pageData.home.module4.subDescription") }}
             </div>
           </div>
@@ -120,7 +120,7 @@
         </div>
       </div>
       <div class="home-module-main">
-        <div class="grid grid-cols-4 gap-6 w-70%">
+        <div class="grid grid-cols-4 gap-16 w-70%">
           <div
               v-for="(item, index) in decryptData(
               $t('pageData.home.module5.dataList')
@@ -130,7 +130,7 @@
               <img :src="item.img"/>
             </div>
             <div
-                class="color-#666 font-600 line-height-5 text-3.8 text-center mt-3"
+                class="color-#666 font-600 line-height-normal text-14 text-center mt-12"
             >
               {{ item.text }}
             </div>
@@ -183,7 +183,7 @@ const {data: pageWorks} = await useFetch("/api/cms/pageWorker")
     width: 50%;
     margin: 0 auto;
     margin-top: 128px;
-    margin-bottom: 28px;
+    margin-bottom: 42px;
 
     .title {
       text-align: center;

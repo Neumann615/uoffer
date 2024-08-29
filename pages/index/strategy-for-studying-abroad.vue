@@ -77,7 +77,6 @@ watch(() => rankingType.value, () => {
 </script>
 
 <template>
-
   <Breadcrumb :breadcrumbList="decryptData($t('pageData.strategyForStudyingAbroad.breadcrumbList'))"></Breadcrumb>
   <ElCarousel :autoplay="false">
     <ElCarouselItem v-for="(item, index) in banner.list">
