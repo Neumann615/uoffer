@@ -1,7 +1,27 @@
+<script lang="ts" setup>
+useSeoMeta({
+  title: '我的神奇网站',
+  ogTitle: '我的神奇网站',
+  description: '这是我的神奇网站，让我告诉你关于它的一切。',
+  ogDescription: '这是我的神奇网站，让我告诉你关于它的一切。',
+  ogImage: 'https://example.com/image.png',
+  twitterCard: 'summary_large_image',
+})
+const {getI18nData} = useI18nData()
+const {data: homeBanner} = await useFetch("/api/cms/banner", {
+  params: {
+    page_num: 1,
+    page_size: 100,
+    position: 2,
+  },
+})
+const {data: pageWorks} = await useFetch("/api/cms/pageWorker")
+</script>
+
 <template>
   <div class="home">
     <div class="home-banner">
-      <ElCarousel autoplay height="33.23vw">
+      <ElCarousel autoplay height="33vw">
         <img
             v-for="(item, index) in homeBanner.list"
             :src="getI18nData(item, 'image_url')"
@@ -146,19 +166,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-
-const {getI18nData} = useI18nData()
-const {data: homeBanner} = await useFetch("/api/cms/banner", {
-  params: {
-    page_num: 1,
-    page_size: 100,
-    position: 2,
-  },
-})
-const {data: pageWorks} = await useFetch("/api/cms/pageWorker")
-</script>
 
 <style scoped lang="less">
 .home {

@@ -21,12 +21,12 @@ export default defineNuxtConfig({
     i18n: {
         vueI18n: "./i18n.config.ts",
     },
-    elementPlus:{
+    elementPlus: {
         defaultLocale: "zh-cn",
     },
     nitro: {
         prerender: {
-            routes: ['/', '/about', "/contact", "/investor-relations","/ranking"]
+            routes: ['/', '/about', "/contact", "/investor-relations", "/ranking", "/course"]
         }
     },
     sourcemap: false,

@@ -86,10 +86,13 @@ getUniversityCategories()
 <template>
   <Breadcrumb :breadcrumbList="decryptData($t('pageData.ranking.breadcrumbList'))"></Breadcrumb>
   <ElCarousel autoplay>
-    <img
-        v-for="(item, index) in rankingBanner.list"
-        :src="getI18nData(item, 'image_url')"
-    />
+    <ElCarouselItem v-for="(item, index) in rankingBanner.list">
+      <img
+          class="object-cover"
+          style="height: 100%"
+          :src="getI18nData(item, 'image_url')"
+      />
+    </ElCarouselItem>
   </ElCarousel>
   <div class="tab-container">
     <div class="tab">
@@ -125,11 +128,11 @@ getUniversityCategories()
             }}
           </div>
         </div>
-          <ElPagination
-              @change="getUniversityData"
-              v-model:current-page="pageNum"
-              :page-count="pageCount"
-          />
+        <ElPagination
+            @change="getUniversityData"
+            v-model:current-page="pageNum"
+            :page-count="pageCount"
+        />
       </div>
       <div class="table-content">
         <div class="table-header">
