@@ -1,0 +1,1 @@
+export type CommonDialogType = 'seeking-advice'
